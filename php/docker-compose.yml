@@ -2,6 +2,7 @@ version: "3"
 
 services:
     demo-php:
+        container_name: demo-php
         build: .
         volumes:
             - ./:/var/www
