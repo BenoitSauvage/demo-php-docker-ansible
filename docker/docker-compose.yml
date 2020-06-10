@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+    demo-nginx:
+        container_name: demo-nginx
+        build: ./nginx
+        volumes:
+            - ./web/:/var/www
+        working_dir: /var/www
+
+    demo-haproxy:
+        container_name: demo-haproxy
+        build: ./haproxy
+        ports:
+            - 8088:8088
+        links:
+            - demo-nginx:nginx
