@@ -1,0 +1,8 @@
+---
+- name: Set up a demo vm using Ubuntu Bionic
+  hosts: all
+  become: no
+  become_method: sudo
+  roles:
+      - nginx
+      - haproxy

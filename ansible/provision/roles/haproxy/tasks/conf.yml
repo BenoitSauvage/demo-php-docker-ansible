@@ -1,0 +1,5 @@
+---
+- name: Copy haproxy.cfg
+  become: yes
+  copy: src=haproxy.cfg dest=/etc/haproxy/haproxy.cfg
+  notify: Reload haproxy

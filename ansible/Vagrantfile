@@ -1,0 +1,21 @@
+Vagrant.configure("2") do |config|
+
+    config.vm.box = "ubuntu/bionic64"
+    config.vm.network "forwarded_port", guest: 8088, host: 8089
+    config.vm.hostname = "demo-ansible"
+
+    config.vm.provider "virtualbox" do |vb|
+        vb.gui = false
+        vb.memory = "2048"
+        vb.cpus = 1
+        vb.customize ["modifyvm", :id, "--name", "demo-ansible"]
+    end
+
+    config.vm.synced_folder ".", "/vagrant", type: 'virtualbox'
+    config.vm.synced_folder "../web", "/var/www", type: 'virtualbox'
+
+    config.vm.provision "ansible" do |ansible|
+        ansible.playbook = "provision/playbook.yml"
+        ansible.verbose = "v"
+    end
+end

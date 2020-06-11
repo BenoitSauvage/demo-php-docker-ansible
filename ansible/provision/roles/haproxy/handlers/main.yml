@@ -1,0 +1,4 @@
+---
+- name: Reload haproxy
+  become: yes
+  service: name=haproxy state=reloaded enabled=yes

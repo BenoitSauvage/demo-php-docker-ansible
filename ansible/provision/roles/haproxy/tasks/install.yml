@@ -1,0 +1,5 @@
+---
+- name: Install haproxy
+  become: yes
+  apt: pkg=haproxy
+  tags: haproxy
