@@ -1,4 +1,4 @@
-### Setup
+## Setup
 - Build container images
 ```bash
 docker-compose build
@@ -9,5 +9,5 @@ docker-compose build
 docker-compose up -d
 ```
 
-### Open project
+## Open project
 URL : http://localhost:8088
